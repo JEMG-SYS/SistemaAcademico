@@ -47,6 +47,7 @@ public class Main {
                     break;
                 case 4:
                     System.out.println("Opción 4: Actualizar Estudiante");
+                    actualizarEstudiante();
                     break;
                 case 5:
                     System.out.println("Opción 5: Eliminar Estudiante");
@@ -103,7 +104,34 @@ public static void buscarEstudiante() {
         System.out.println("Estudiante no encontrado.");
     }
 }
+    public static void actualizarEstudiante() {
+    System.out.println("\n--- ACTUALIZAR ESTUDIANTE ---");
     
+    if(estudiantes.isEmpty()) {
+        System.out.println("No hay estudiantes para actualizar.");
+        return;
+    }
+    
+    listarEstudiantes();
+    
+    System.out.print("Seleccione el número del estudiante a actualizar: ");
+    int indice = scanner.nextInt();
+    scanner.nextLine();
+    
+    if(indice > 0 && indice <= estudiantes.size()) {
+        System.out.print("Ingrese el nuevo nombre: ");
+        String nuevoNombre = scanner.nextLine();
+        
+        String nombreAnterior = estudiantes.get(indice - 1);
+        estudiantes.set(indice - 1, nuevoNombre);
+        
+        System.out.println("Estudiante actualizado exitosamente!");
+        System.out.println("Anterior: " + nombreAnterior);
+        System.out.println("Nuevo: " + nuevoNombre);
+    } else {
+        System.out.println("Número no válido.");
+    }
+}
     
     
     
