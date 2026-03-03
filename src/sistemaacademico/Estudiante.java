@@ -1,24 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package sistemaacademico;
 
-/**
- *
- * @author 2jcue
- */
 public class Estudiante {
+<<<<<<< HEAD
    private String codigo;
+=======
+
+    private String codigo;
+>>>>>>> 0a61ba6 (feat:crear clase Estudiante con atributos)
     private String nombre;
     private String apellido;
     private int edad;
     private int semestre;
-    
-    // Constructor vacío
-    public Estudiante() {
-    }
 
+<<<<<<< HEAD
     // Constructor con todos los atributos
     public Estudiante(String codigo, String nombre, String apellido, int edad, int semestre) {
         this.codigo = codigo;
@@ -80,3 +74,6 @@ public class Estudiante {
 
     
 }
+=======
+}
+>>>>>>> 0a61ba6 (feat:crear clase Estudiante con atributos)
