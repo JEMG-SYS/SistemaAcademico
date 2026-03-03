@@ -1,79 +1,48 @@
 package sistemaacademico;
 
 public class Estudiante {
-<<<<<<< HEAD
-   private String codigo;
-=======
 
     private String codigo;
->>>>>>> 0a61ba6 (feat:crear clase Estudiante con atributos)
     private String nombre;
-    private String apellido;
-    private int edad;
+    private String programa;
     private int semestre;
 
-<<<<<<< HEAD
-    // Constructor con todos los atributos
-    public Estudiante(String codigo, String nombre, String apellido, int edad, int semestre) {
-        this.codigo = codigo;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.edad = edad;
-        this.semestre = semestre;
-    }
-    
-    
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-    public int getSemestre() {
-        return semestre;
-    }
-
-    public void setSemestre(int semestre) {
-        this.semestre = semestre;
-    }
-
-    @Override
-    public String toString() {
-        return "Codigo: " + codigo +
-                " | Nombre: " + nombre +
-                " | Apellido: " + apellido +
-                " | Edad: " + edad +
-                " | Semestre: " + semestre;
-    }
-
-    
+    public Estudiante(String codigo, String nombre, String programa, int semestre) {
+    this.codigo = codigo;
+    this.nombre = nombre;
+    this.programa = programa;
+    this.semestre = semestre;
 }
-=======
+
+public String getCodigo() {
+    return codigo;
 }
->>>>>>> 0a61ba6 (feat:crear clase Estudiante con atributos)
+
+public void setCodigo(String codigo) {
+    this.codigo = codigo;
+}
+
+public String getNombre() {
+    return nombre;
+}
+
+public void setNombre(String nombre) {
+    this.nombre = nombre;
+}
+
+public String getPrograma() {
+    return programa;
+}
+
+public void setPrograma(String programa) {
+    this.programa = programa;
+}
+
+public int getSemestre() {
+    return semestre;
+}
+
+public void setSemestre(int semestre) {
+    this.semestre = semestre;
+}
+}
