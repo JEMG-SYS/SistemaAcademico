@@ -160,6 +160,92 @@ public static void buscarEstudiante() {
     }
 }
     
+    /*
+ public void RegistrarAsignatura(){
+        Asignatura a = new Asignatura();
+         System.out.println("Codigo:");
+         a.setCodigo(scanner.next());
+         
+         System.out.println("Nombre:");
+         a.setCodigo(scanner.next());
+         
+         System.out.println("Creditos:");
+         a.setCodigo(scanner.next());
+         
+         System.out.println("Docentos:");
+         a.setCodigo(scanner.next());
+         
+       listaAsignaturas.add(a);
+         
+         System.out.println("Asignatura agregada correctamente");
+         
+     }*/
+    
+    /*
+public static void listarAsignaturas() {
+
+    if (listaAsignaturas.isEmpty()) {
+        System.out.println("No hay asignaturas registradas.");
+        return;
+    }
+
+    for (Asignatura a : listaAsignaturas) {
+        System.out.println(a);
+    }
+}*/
+
+/*
+public static void buscarAsignatura() {
+
+    System.out.print("Ingrese código: ");
+    String codigo = sc.nextLine();
+
+    for (Asignatura a : listaAsignaturas) {
+        if (a.getCodigo().equals(codigo)) {
+            System.out.println(a);
+            return;
+        }
+    }
+
+    System.out.println("Asignatura no encontrada.");
+}*/
+    
+    /*
+    public static void actualizarAsignatura() {
+
+    System.out.print("Ingrese código: ");
+    String codigo = sc.nextLine();
+
+    for (Asignatura a : listaAsignaturas) {
+        if (a.getCodigo().equals(codigo)) {
+
+            System.out.print("Nuevo nombre: ");
+            a.setNombre(sc.nextLine());
+
+            System.out.println("Asignatura actualizada correctamente.");
+            return;
+        }
+    }
+
+    System.out.println("Asignatura no encontrada.");
+}*/
+    
+    /*
+    public static void eliminarAsignatura() {
+
+    System.out.print("Ingrese código: ");
+    String codigo = sc.nextLine();
+
+    listaAsignaturas.removeIf(a -> a.getCodigo().equals(codigo));
+
+    System.out.println("Proceso completado.");
+}*/
+    
+    
+
+    
+    
+    
     
     
     
