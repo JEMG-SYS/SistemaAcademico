@@ -209,6 +209,28 @@ public static void buscarAsignatura() {
 
     System.out.println("Asignatura no encontrada.");
 }*/
+    
+    /*
+    public static void actualizarAsignatura() {
+
+    System.out.print("Ingrese código: ");
+    String codigo = sc.nextLine();
+
+    for (Asignatura a : listaAsignaturas) {
+        if (a.getCodigo().equals(codigo)) {
+
+            System.out.print("Nuevo nombre: ");
+            a.setNombre(sc.nextLine());
+
+            System.out.println("Asignatura actualizada correctamente.");
+            return;
+        }
+    }
+
+    System.out.println("Asignatura no encontrada.");
+}*/
+    
+    
 
     
     
