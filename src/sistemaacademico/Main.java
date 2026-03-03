@@ -51,6 +51,7 @@ public class Main {
                     break;
                 case 5:
                     System.out.println("Opción 5: Eliminar Estudiante");
+                    eliminarEstudiante();
                     break;
                 case 6:
                     System.out.println("¡Hasta luego!");
@@ -133,6 +134,31 @@ public static void buscarEstudiante() {
     }
 }
     
+    
+    
+    
+    public static void eliminarEstudiante() {
+    System.out.println("\n--- ELIMINAR ESTUDIANTE ---");
+    
+    if(estudiantes.isEmpty()) {
+        System.out.println("No hay estudiantes para eliminar.");
+        return;
+    }
+    
+    listarEstudiantes();
+    
+    System.out.print("Seleccione el número del estudiante a eliminar: ");
+    int indice = scanner.nextInt();
+    scanner.nextLine();
+    
+    if(indice > 0 && indice <= estudiantes.size()) {
+        String estudianteEliminado = estudiantes.remove(indice - 1);
+        System.out.println("Estudiante eliminado exitosamente: " + estudianteEliminado);
+        System.out.println("Total ahora: " + estudiantes.size());
+    } else {
+        System.out.println("Número no válido.");
+    }
+}
     
     
     
