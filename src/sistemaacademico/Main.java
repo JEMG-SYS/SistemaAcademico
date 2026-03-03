@@ -39,9 +39,11 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("Opción 2: Listar Estudiantes");
+                    listarEstudiantes();
                     break;
                 case 3:
                     System.out.println("Opción 3: Buscar Estudiante");
+                    buscarEstudiante();
                     break;
                 case 4:
                     System.out.println("Opción 4: Actualizar Estudiante");
@@ -67,6 +69,41 @@ public class Main {
     System.out.println("Estudiante registrado exitosamente!");
     System.out.println("Total de estudiantes: " + estudiantes.size());
 }
+    
+    
+    public static void listarEstudiantes() {
+    System.out.println("\n--- LISTA DE ESTUDIANTES ---");
+    
+    if(estudiantes.isEmpty()) {
+        System.out.println("No hay estudiantes registrados.");
+    } else {
+        for(int i = 0; i < estudiantes.size(); i++) {
+            System.out.println((i + 1) + ". " + estudiantes.get(i));
+        }
+        System.out.println("Total: " + estudiantes.size() + " estudiantes");
+    }
+}
+
+public static void buscarEstudiante() {
+    System.out.println("\n--- BUSCAR ESTUDIANTE ---");
+    System.out.print("Ingrese el nombre del estudiante a buscar: ");
+    String nombreBuscado = scanner.nextLine();
+    
+    boolean encontrado = false;
+    for(int i = 0; i < estudiantes.size(); i++) {
+        if(estudiantes.get(i).equalsIgnoreCase(nombreBuscado)) {
+            System.out.println("Estudiante encontrado en posición: " + (i + 1));
+            System.out.println("Nombre: " + estudiantes.get(i));
+            encontrado = true;
+            break;
+        }
+    }
+    
+    if(!encontrado) {
+        System.out.println("Estudiante no encontrado.");
+    }
+}
+    
     
     
     
