@@ -35,6 +35,7 @@ public class Main {
             switch(opcion) {
                 case 1:
                     System.out.println("Opción 1: Registrar Estudiante");
+                    registrarEstudiante();
                     break;
                 case 2:
                     System.out.println("Opción 2: Listar Estudiantes");
@@ -56,6 +57,21 @@ public class Main {
             }
         } while(opcion != 6);
     }
+    
+    public static void registrarEstudiante() {
+    System.out.println("\n--- REGISTRAR ESTUDIANTE ---");
+    System.out.print("Ingrese el nombre del estudiante: ");
+    String nombre = scanner.nextLine();
+    
+    estudiantes.add(nombre);
+    System.out.println("Estudiante registrado exitosamente!");
+    System.out.println("Total de estudiantes: " + estudiantes.size());
+}
+    
+    
+    
+    
+    
 }
     
     
