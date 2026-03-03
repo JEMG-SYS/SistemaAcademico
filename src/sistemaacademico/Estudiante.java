@@ -45,4 +45,11 @@ public int getSemestre() {
 public void setSemestre(int semestre) {
     this.semestre = semestre;
 }
+@Override
+public String toString() {
+    return "Código: " + codigo +
+           " | Nombre: " + nombre +
+           " | Programa: " + programa +
+           " | Semestre: " + semestre;
+}
 }
