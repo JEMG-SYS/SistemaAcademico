@@ -230,6 +230,17 @@ public static void buscarAsignatura() {
     System.out.println("Asignatura no encontrada.");
 }*/
     
+    /*
+    public static void eliminarAsignatura() {
+
+    System.out.print("Ingrese código: ");
+    String codigo = sc.nextLine();
+
+    listaAsignaturas.removeIf(a -> a.getCodigo().equals(codigo));
+
+    System.out.println("Proceso completado.");
+}*/
+    
     
 
     
