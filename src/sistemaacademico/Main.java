@@ -181,6 +181,36 @@ public static void buscarEstudiante() {
          
      }*/
     
+    /*
+public static void listarAsignaturas() {
+
+    if (listaAsignaturas.isEmpty()) {
+        System.out.println("No hay asignaturas registradas.");
+        return;
+    }
+
+    for (Asignatura a : listaAsignaturas) {
+        System.out.println(a);
+    }
+}*/
+
+/*
+public static void buscarAsignatura() {
+
+    System.out.print("Ingrese código: ");
+    String codigo = sc.nextLine();
+
+    for (Asignatura a : listaAsignaturas) {
+        if (a.getCodigo().equals(codigo)) {
+            System.out.println(a);
+            return;
+        }
+    }
+
+    System.out.println("Asignatura no encontrada.");
+}*/
+
+    
     
     
     
