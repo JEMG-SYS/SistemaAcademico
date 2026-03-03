@@ -160,6 +160,29 @@ public static void buscarEstudiante() {
     }
 }
     
+    /*
+ public void RegistrarAsignatura(){
+        Asignatura a = new Asignatura();
+         System.out.println("Codigo:");
+         a.setCodigo(scanner.next());
+         
+         System.out.println("Nombre:");
+         a.setCodigo(scanner.next());
+         
+         System.out.println("Creditos:");
+         a.setCodigo(scanner.next());
+         
+         System.out.println("Docentos:");
+         a.setCodigo(scanner.next());
+         
+       listaAsignaturas.add(a);
+         
+         System.out.println("Asignatura agregada correctamente");
+         
+     }*/
+    
+    
+    
     
     
     
