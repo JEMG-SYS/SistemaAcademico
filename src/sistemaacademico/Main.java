@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Main {
     
     private static ArrayList<String> estudiantes = new ArrayList<>();
-    private static ArrayList<String> asignaturas = new ArrayList<>();
+    private static ArrayList<Asignatura> asignaturas = new ArrayList<>();
     private static ArrayList<Double> notas = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
@@ -26,7 +26,9 @@ public class Main {
             System.out.println("3. Buscar Estudiante");
             System.out.println("4. Actualizar Estudiante");
             System.out.println("5. Eliminar Estudiante");
-            System.out.println("6. Salir");
+            System.out.println("6. Registrar Asignatura");
+            System.out.println("7. Listar Asignaturas");
+            System.out.println("8. Salir");
             System.out.print("Seleccione una opción: ");
             
             opcion = scanner.nextInt();
@@ -54,12 +56,19 @@ public class Main {
                     eliminarEstudiante();
                     break;
                 case 6:
+                     registrarAsignatura();
+                    break;
+                case 7:
+                    listarAsignaturas();
+                    break;
+
+                case 8:
                     System.out.println("¡Hasta luego!");
                     break;
                 default:
                     System.out.println("Opción no válida");
             }
-        } while(opcion != 6);
+        } while(opcion != 8);
     }
     
     public static void registrarEstudiante() {
@@ -157,6 +166,37 @@ public static void buscarEstudiante() {
         System.out.println("Total ahora: " + estudiantes.size());
     } else {
         System.out.println("Número no válido.");
+    }
+}
+    public static void registrarAsignatura() {
+
+    System.out.println("\n--- REGISTRAR ASIGNATURA ---");
+
+    System.out.print("Código: ");
+    String codigo = scanner.nextLine();
+
+    System.out.print("Nombre: ");
+    String nombre = scanner.nextLine();
+
+    System.out.print("Créditos: ");
+    int creditos = scanner.nextInt();
+    scanner.nextLine();
+
+    Asignatura nueva = new Asignatura(codigo, nombre, creditos);
+    asignaturas.add(nueva);
+
+    System.out.println("Asignatura registrada correctamente.");
+}
+    public static void listarAsignaturas() {
+
+    System.out.println("\n--- LISTA DE ASIGNATURAS ---");
+
+    if(asignaturas.isEmpty()) {
+        System.out.println("No hay asignaturas registradas.");
+    } else {
+        for(Asignatura a : asignaturas) {
+            System.out.println(a);
+        }
     }
 }
     
