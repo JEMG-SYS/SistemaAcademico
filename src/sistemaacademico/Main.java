@@ -1,4 +1,3 @@
-
 package sistemaacademico;
 
 import java.util.ArrayList;
@@ -7,9 +6,9 @@ import java.util.Scanner;
 
 public class Main {
     
-    private static ArrayList<String> estudiantes = new ArrayList<>();
+    private static ArrayList<Estudiante> estudiantes = new ArrayList<>();
     private static ArrayList<Asignatura> asignaturas = new ArrayList<>();
-    private static ArrayList<Double> notas = new ArrayList<>();
+    private static ArrayList<Nota> listaNotas = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -28,7 +27,9 @@ public class Main {
             System.out.println("5. Eliminar Estudiante");
             System.out.println("6. Registrar Asignatura");
             System.out.println("7. Listar Asignaturas");
-            System.out.println("8. Salir");
+            System.out.println("8. Registrar Nota");
+            System.out.println("9. Listar Notas");
+            System.out.println("10. Salir");
             System.out.print("Seleccione una opción: ");
             
             opcion = scanner.nextInt();
@@ -63,107 +64,132 @@ public class Main {
                     break;
 
                 case 8:
-                    System.out.println("¡Hasta luego!");
+                    registrarNota();
                     break;
+
+                case 9:
+                    listarNotas();
+                    break;
+
+                case 10:
+                System.out.println("¡Hasta luego!");
+                     break;
                 default:
                     System.out.println("Opción no válida");
             }
-        } while(opcion != 8);
+        } while(opcion != 10);
     }
     
     public static void registrarEstudiante() {
+
     System.out.println("\n--- REGISTRAR ESTUDIANTE ---");
-    System.out.print("Ingrese el nombre del estudiante: ");
+
+    System.out.print("Código: ");
+    String codigo = scanner.nextLine();
+
+    System.out.print("Nombre: ");
     String nombre = scanner.nextLine();
-    
-    estudiantes.add(nombre);
+
+    System.out.print("Programa: ");
+    String programa = scanner.nextLine();
+
+    System.out.print("Semestre: ");
+    int semestre = scanner.nextInt();
+    scanner.nextLine();
+
+    Estudiante nuevo = new Estudiante(codigo, nombre, programa, semestre);
+    estudiantes.add(nuevo);
+
     System.out.println("Estudiante registrado exitosamente!");
-    System.out.println("Total de estudiantes: " + estudiantes.size());
 }
     
     
     public static void listarEstudiantes() {
+
     System.out.println("\n--- LISTA DE ESTUDIANTES ---");
-    
+
     if(estudiantes.isEmpty()) {
         System.out.println("No hay estudiantes registrados.");
     } else {
         for(int i = 0; i < estudiantes.size(); i++) {
             System.out.println((i + 1) + ". " + estudiantes.get(i));
         }
-        System.out.println("Total: " + estudiantes.size() + " estudiantes");
     }
 }
 
 public static void buscarEstudiante() {
+
     System.out.println("\n--- BUSCAR ESTUDIANTE ---");
     System.out.print("Ingrese el nombre del estudiante a buscar: ");
     String nombreBuscado = scanner.nextLine();
-    
+
     boolean encontrado = false;
+
     for(int i = 0; i < estudiantes.size(); i++) {
-        if(estudiantes.get(i).equalsIgnoreCase(nombreBuscado)) {
-            System.out.println("Estudiante encontrado en posición: " + (i + 1));
-            System.out.println("Nombre: " + estudiantes.get(i));
+
+        if(estudiantes.get(i).getNombre().equalsIgnoreCase(nombreBuscado)) {
+
+            System.out.println("Estudiante encontrado:");
+            System.out.println(estudiantes.get(i));
             encontrado = true;
             break;
         }
     }
-    
+
     if(!encontrado) {
         System.out.println("Estudiante no encontrado.");
     }
 }
     public static void actualizarEstudiante() {
+
     System.out.println("\n--- ACTUALIZAR ESTUDIANTE ---");
-    
+
     if(estudiantes.isEmpty()) {
         System.out.println("No hay estudiantes para actualizar.");
         return;
     }
-    
+
     listarEstudiantes();
-    
+
     System.out.print("Seleccione el número del estudiante a actualizar: ");
     int indice = scanner.nextInt();
     scanner.nextLine();
-    
+
     if(indice > 0 && indice <= estudiantes.size()) {
-        System.out.print("Ingrese el nuevo nombre: ");
-        String nuevoNombre = scanner.nextLine();
-        
-        String nombreAnterior = estudiantes.get(indice - 1);
-        estudiantes.set(indice - 1, nuevoNombre);
-        
-        System.out.println("Estudiante actualizado exitosamente!");
-        System.out.println("Anterior: " + nombreAnterior);
-        System.out.println("Nuevo: " + nuevoNombre);
+
+        Estudiante estudiante = estudiantes.get(indice - 1);
+
+        System.out.print("Nuevo nombre: ");
+        estudiante.setNombre(scanner.nextLine());
+
+        System.out.println("Estudiante actualizado correctamente.");
+
     } else {
         System.out.println("Número no válido.");
     }
 }
     
     
-    
-    
     public static void eliminarEstudiante() {
+
     System.out.println("\n--- ELIMINAR ESTUDIANTE ---");
-    
+
     if(estudiantes.isEmpty()) {
         System.out.println("No hay estudiantes para eliminar.");
         return;
     }
-    
+
     listarEstudiantes();
-    
+
     System.out.print("Seleccione el número del estudiante a eliminar: ");
     int indice = scanner.nextInt();
     scanner.nextLine();
-    
+
     if(indice > 0 && indice <= estudiantes.size()) {
-        String estudianteEliminado = estudiantes.remove(indice - 1);
-        System.out.println("Estudiante eliminado exitosamente: " + estudianteEliminado);
-        System.out.println("Total ahora: " + estudiantes.size());
+
+        Estudiante eliminado = estudiantes.remove(indice - 1);
+        System.out.println("Estudiante eliminado: " + eliminado.getNombre());
+
     } else {
         System.out.println("Número no válido.");
     }
@@ -199,7 +225,49 @@ public static void buscarEstudiante() {
         }
     }
 }
-    
+    public static void registrarNota() {
+
+    if(estudiantes.isEmpty() || asignaturas.isEmpty()) {
+        System.out.println("Debe existir al menos un estudiante y una asignatura.");
+        return;
+    }
+
+    System.out.println("\n--- REGISTRAR NOTA ---");
+
+    listarEstudiantes();
+    System.out.print("Seleccione número del estudiante: ");
+    int estIndex = scanner.nextInt() - 1;
+
+    listarAsignaturas();
+    System.out.print("Seleccione número de la asignatura: ");
+    int asigIndex = scanner.nextInt() - 1;
+
+    System.out.print("Ingrese la nota: ");
+    double valor = scanner.nextDouble();
+    scanner.nextLine();
+
+    Nota nueva = new Nota(
+        estudiantes.get(estIndex),
+        asignaturas.get(asigIndex),
+        valor
+    );
+
+    listaNotas.add(nueva);
+
+    System.out.println("Nota registrada correctamente.");
+}
+    public static void listarNotas() {
+
+    System.out.println("\n--- LISTA DE NOTAS ---");
+
+    if(listaNotas.isEmpty()) {
+        System.out.println("No hay notas registradas.");
+    } else {
+        for(Nota n : listaNotas) {
+            System.out.println(n);
+        }
+    }
+}
     /*
  public void RegistrarAsignatura(){
         Asignatura a = new Asignatura();
